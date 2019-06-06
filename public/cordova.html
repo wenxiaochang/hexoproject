@@ -14,14 +14,12 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-
-
 
 
 
@@ -54,19 +52,19 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
 
 
 
@@ -78,12 +76,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
     fancybox: true,
     fastclick: false,
-    lazyload: false,
+    lazyload: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
@@ -103,9 +103,10 @@
 
 
   <meta name="description" content="一、环境搭建篇 Apache Cordova 生态比较活跃而且还是歪果仁开发的一个混合APP框架，反正最近比较闲就试试研究研究一番。还是先从环境搭建开始，准备好了吗？要开车咯  1、开发环境 node 8.9.0 (我在用的版本) android sdk (生成 *.apk) Xcode(生成*ipa)   说明下Xcode要在Mac系统上才会有 本人没有Mac 只能从安卓玩起  2、Cordov">
+<meta name="keywords" content="cordova">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cordova 结合 vue 构建 webapp 教程">
-<meta property="og:url" content="https://www.wjingchang.cc/2019/03/03/cordova/index.html">
+<meta property="og:url" content="https://www.wjingchang.cc/cordova.html">
 <meta property="og:site_name" content="小畅的博客">
 <meta property="og:description" content="一、环境搭建篇 Apache Cordova 生态比较活跃而且还是歪果仁开发的一个混合APP框架，反正最近比较闲就试试研究研究一番。还是先从环境搭建开始，准备好了吗？要开车咯  1、开发环境 node 8.9.0 (我在用的版本) android sdk (生成 *.apk) Xcode(生成*ipa)   说明下Xcode要在Mac系统上才会有 本人没有Mac 只能从安卓玩起  2、Cordov">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +114,7 @@
 <meta property="og:image" content="https://www.wjingchang.cc/images/20190303/20190303153825.png">
 <meta property="og:image" content="https://www.wjingchang.cc/images/20190303/20190303155903.png">
 <meta property="og:image" content="https://www.wjingchang.cc/images/20190303/20190303175102.png">
-<meta property="og:updated_time" content="2019-03-03T11:56:30.337Z">
+<meta property="og:updated_time" content="2019-06-06T10:18:42.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cordova 结合 vue 构建 webapp 教程">
 <meta name="twitter:description" content="一、环境搭建篇 Apache Cordova 生态比较活跃而且还是歪果仁开发的一个混合APP框架，反正最近比较闲就试试研究研究一番。还是先从环境搭建开始，准备好了吗？要开车咯  1、开发环境 node 8.9.0 (我在用的版本) android sdk (生成 *.apk) Xcode(生成*ipa)   说明下Xcode要在Mac系统上才会有 本人没有Mac 只能从安卓玩起  2、Cordov">
@@ -123,8 +124,9 @@
 
 
 
-
-  <link rel="canonical" href="https://www.wjingchang.cc/2019/03/03/cordova/">
+  
+  
+  <link rel="canonical" href="https://www.wjingchang.cc/cordova">
 
 
 
@@ -173,10 +175,9 @@
   </style>
 </noscript>
 
-  <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -185,8 +186,8 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-    <a href="https://github.com/wenxiaochang" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
     
@@ -207,7 +208,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="accessibility.nav_toggle">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -242,7 +243,7 @@
         
         
           
-          <li class="menu-item menu-item-about">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -252,7 +253,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -316,20 +317,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.wjingchang.cc/2019/03/03/cordova/">
+    <link itemprop="mainEntityOfPage" href="https://www.wjingchang.cc/cordova.html">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wenxiaochang">
-      <meta itemprop="description" content="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小畅">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="小畅的博客">
     </span>
 
@@ -364,19 +365,50 @@
                 
               
 
-              <time title="创建时间：2019-03-03 19:34:52 / 修改时间：19:56:30" itemprop="dateCreated datePublished" datetime="2019-03-03T19:34:52+08:00">2019-03-03</time>
+              <time title="创建于：2019-03-03 19:34:52" itemprop="dateCreated datePublished" datetime="2019-03-03T19:34:52+08:00">2019-03-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">编辑于</span>
+                
+                <time title="更新于：2019-06-06 18:18:42" itemprop="dateModified" datetime="2019-06-06T18:18:42+08:00">2019-06-06</time>
               
             
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web前端/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
             
           
 
@@ -488,6 +520,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/cordova/" rel="tag"># cordova</a>
+          
+        </div>
+      
 
       
       
@@ -528,7 +569,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -546,10 +586,12 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">wenxiaochang</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="小畅">
+            
+              <p class="site-author-name" itemprop="name">小畅</p>
+              <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
           
@@ -566,9 +608,41 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
             </nav>
+          
+
           
 
           
@@ -608,9 +682,17 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
+  
 
 
         
@@ -623,7 +705,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">wenxiaochang</span>
+  <span class="author" itemprop="copyrightHolder">小畅</span>
 
   
 
@@ -639,7 +721,7 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
 
 
 
@@ -657,11 +739,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -685,6 +762,8 @@
 
 
 
+  
+
 
 
 
@@ -693,12 +772,6 @@
   
 
 
-
-  
-    
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -716,6 +789,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   
+  <script src="//cdn.jsdelivr.net/npm/jquery-lazyload@1/jquery.lazyload.min.js"></script>
+
+  
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
@@ -728,32 +804,9 @@
   
 
 
-  <script src="/js/src/utils.js?v=6.7.0"></script>
+  <script src="/js/utils.js?v=7.1.2"></script>
 
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/js/src/post-details.js?v=6.7.0"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+  <script src="/js/motion.js?v=7.1.2"></script>
 
 
 
@@ -761,7 +814,35 @@
   
 
 
+  <script src="/js/affix.js?v=7.1.2"></script>
 
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 
   
@@ -769,6 +850,7 @@
 
 
 
+  
 
   
 

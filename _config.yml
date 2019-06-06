@@ -6,15 +6,15 @@
 title: '小畅的博客'
 subtitle: 'The New Year sets sail - Happy New Year'
 description:
-author: 'wenxiaochang'
-language: 'zh-CN'
+author: '小畅'
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://www.wjingchang.cc
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title.html
 permalink_defaults:
 
 # Directory
@@ -78,5 +78,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/wenxiaochang/wenxiaochang.github.io.git
+  repository: git@github.com:wenxiaochang/wenxiaochang.github.io.git
   branch: master

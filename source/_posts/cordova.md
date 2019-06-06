@@ -1,7 +1,9 @@
 ---
 title: cordova 结合 vue 构建 webapp 教程
 date: 2019-03-03 19:34:52
-tags:
+tags: 
+- cordova
+categories: web前端
 ---
 ## 一、环境搭建篇
 
