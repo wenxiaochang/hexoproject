@@ -5,7 +5,7 @@
 # Site
 title: '小畅的博客'
 subtitle: 'The New Year sets sail - Happy New Year'
-description:
+description: '记录IT技术，网络工具，软件分享，日常开发笔记'
 author: '小畅'
 language: zh-CN
 timezone:
@@ -77,6 +77,27 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repository: git@github.com:wenxiaochang/wenxiaochang.github.io.git
   branch: master
+- type: baidu_url_submitter
+
+# 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
+baidusitemap: 
+  path: baidusitemap.xml
+
+# 搜索配置
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# 百度提交配置
+baidu_url_submit:
+  count: 1000 ## 提交最新的一个链接
+  host: www.wjingchang.cc ## 在百度站长平台中注册的域名
+  token: 3CpFLnYOraYUaQKO ## 请注意这是您的秘钥，所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
