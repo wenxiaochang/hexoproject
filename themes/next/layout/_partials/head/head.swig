@@ -4,7 +4,7 @@
 <meta name="theme-color" content="{{ theme.android_chrome_color }}"/>
 <meta name="baidu-site-verification" content="UKFKhrHmyM" />
 <meta name="google-site-verification" content="TBnZvedrxJ2BuNHNv5JkvtSuyqwbgHNhxo8jeFLT_TQ" />
-<meta name="keyowrds" content="小畅的博客,小畅,温小畅,前端博客">
+<meta name="keywords" content="小畅的博客,小畅,温小畅,前端博客">
 {% if theme.needmoreshare2.enable %}
   {% set needmoreshare2_css = url_for(theme.vendors._internal + '/needsharebutton/needsharebutton.css') %}
   {% if theme.vendors.needmoreshare2_css %}
